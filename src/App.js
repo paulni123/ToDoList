@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import AddTask from "./components/AddTask";
+import Header from "./components/Header";
+import { useState } from "react"
+// import Calendar from 'react-calendar';
+// import 'react-calendar/dist/Calendar.css';
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 
 function App() {
+
+  const[selectedDate, setSelectedDate] = useState(null)
+  const[addTag, setAddTag] = useState(false)
+  const[tags, setTags] = useState([])
+
+  // const addTask
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+        <Header />
+        <AddTask onAdd={() => setAddTag(addTag)}/>
+        {tags.length > 0 ? <Tags tags = {tags} 
+            onDelete = {deleteTag}/> 
+            : 'No tags'}
+        <DatePicker className='datePicker' selected={selectedDate} 
+        onChange={date => setSelectedDate(date)}
+        minDate = {new Date()}/>
     </div>
   );
 }
