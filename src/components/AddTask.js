@@ -1,32 +1,52 @@
-import React from 'react'
 import { useState } from 'react'
+import Calendar from 'react-calendar'
+import 'react-calendar/dist/Calendar.css';
+import dayjs from 'dayjs';
 
-const AddTask = ({onAdd}) => {
+const AddTask = ( {} ) => {
 
     const [text, setText] = useState('')
-    const [due, setDue] = useState('')
-    const [tags, setTags] = useState('')
+    const [value, onChange] = useState('')
 
+    const onSubmit = (e) => {
+        e.preventDefault()
+
+        if(!text){
+            alert('Please add a title')
+            return
+        }
+
+        if(!value){
+            alert('Please add a Due Date')
+            return
+        }
+        console.log(value)
+
+        setText('')
+        onChange('')
+
+    }
 
     return (
-        <form className='addForm'>
-            <div className='formControl'>
-                <label>Title</label>
-                <input type='text' placeholder='Enter a title'
-                value = {text} onChange={(e) => setText(e.target.value)}/>
+        <form className='addForm' onSubmit={onSubmit}>
+            <div className = 'formControl'>
+                <label>Title:</label>
+                <input type='text' placeholder='Enter
+                Title' value = {text} onChange={(e) => setText(e.target.value)}/>
             </div>
-            <div className='formControl2'>
-                <label>Tags</label>
-                <input type='text' placeholder='Ex: Grocery, School...'
-                value = {tags} onChange={(e) => setTags(e.target.value)}/>
-                <input type='button' value='Create Tag' onClick={onAdd}/>
+
+
+
+            <div className = 'formControl'>
+                <label>Due Date:</label>
+                <input type='text' value = {value !== '' ? dayjs(value).format('MM/DD/YYYY') : ''} onChange={onChange}/>
+                <Calendar className = 'reactCalendar'
+                onChange={onChange}
+                value={value}/>
             </div>
-            <div className='formControl3'>
-                <label>Due Date</label>
-            </div>
+
             <input type='submit' value = 'Create' 
             className='btn btn-block'/>
-            
         </form>
     )
 }

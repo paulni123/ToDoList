@@ -52,7 +52,7 @@ body {
 .formControl2 input {
   padding: 3px 7px;
   position: relative;
-  left: 167px;
+  left: 145px;
   bottom: 25px;
 }
 
@@ -87,4 +87,21 @@ body {
 .btn-block {
   display: block;
   width: 100%;
+}
+
+
+.addForm .formControl .reactCalendar{
+  width: 350px;
+  position: relative;
+  left: 50px;
+}
+
+.addForm .formControl2 .modernButton{
+
+  width: 100px;
+  height: 25px;
+  font-size: 10px;
+  position: relative;
+  left: 150px;
+  bottom: 25px;
 }
