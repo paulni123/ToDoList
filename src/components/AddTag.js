@@ -29,7 +29,7 @@ const AddTag = ({ onAdd }) => {
                 value = {tagText} onChange= {(e) => setTagText(e.target.value)}/>
 
                 {/* <input type='submit' value = 'Create Tag'/> */}
-                <Button variant="contained" color="primary" className='modernButton' onClick={onSubmit}>Create Tag</Button>
+                <Button variant="contained" color="secondary" className='modernButton' onClick={onSubmit}>Create Tag</Button>
             </div>
         </form>
     )

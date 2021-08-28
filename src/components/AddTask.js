@@ -3,10 +3,11 @@ import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
 import dayjs from 'dayjs';
 
-const AddTask = ( {} ) => {
+const AddTask = ( { onAdd } ) => {
 
     const [text, setText] = useState('')
     const [value, onChange] = useState('')
+    const [completed, setCompleted] = useState(false)
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -20,10 +21,14 @@ const AddTask = ( {} ) => {
             alert('Please add a Due Date')
             return
         }
-        console.log(value)
+
+        const value2 = dayjs(value).format('MM/DD/YYYY')
+
+        onAdd({text, value2, completed})
 
         setText('')
         onChange('')
+        setCompleted(false)
 
     }
 
