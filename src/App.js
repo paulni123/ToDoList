@@ -16,9 +16,23 @@ function App() {
 
   const [tasks, setTasks] = useState([])
 
+  const [toDoButton, setTodoColor] = useState(false)
+
+  const [dateButton, setDateColor] = useState(false)
+
   function listOfTags(){
     console.log("This is the values: ",tags)
-    return tags;
+
+    // const tagsText = []
+    
+    // for (let i = 0; i < tags.length; i++){
+    //     tagsText.push(tags[i].tag)
+    // }
+
+    // return tagsText
+
+    return tags
+
   }
 
   const addTag = (tag) => {
@@ -42,10 +56,10 @@ function App() {
     setTags(tags.filter((tag) => tag.id !== id))
   }
 
-  const clearTags = () => {
+  // const clearTags = (tags) => {
 
-    setTags([])
-  }
+  //   setTags([])
+  // }
 
 
   const addTask = (task) => {
@@ -67,6 +81,15 @@ function App() {
     ? {...task, completed : !task.completed} : task))
   }
 
+  const changeTodoColor = () => {
+    setTodoColor(!toDoButton)
+  }
+
+  const changeDateColor = () => {
+    setDateColor(!dateButton)
+  }
+
+
   return (
     <div>
       <div className="container">
@@ -81,12 +104,13 @@ function App() {
         minDate = {new Date()}/> */}
       </div>
       <div className="container2">
-          <Button variant="contained" color="default">Todo</Button>
-          <Button variant="contained" color="primary" >Date</Button>
+          <Button variant="contained" onClick={changeTodoColor} color={toDoButton ? "primary": "default"} >Todo</Button>
+          <Button variant="contained" onClick={changeDateColor} color={dateButton ? "primary": "default"} >Date</Button>
           <div>
             {tasks.length > 0 ? <Tasks tasks = {tasks} 
-            onDelete={deleteTask} onToggle={toggleCompleted} onTags={listOfTags}
-            clearTags={clearTags}/> 
+            onDelete={deleteTask} onToggle={toggleCompleted} tags={tags}
+            onDeleteTag={deleteTag}
+            /> 
             : 'No tasks'}
             </div>
       </div>

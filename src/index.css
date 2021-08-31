@@ -132,3 +132,7 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+
+.tagClass {
+  display: inline;
+}

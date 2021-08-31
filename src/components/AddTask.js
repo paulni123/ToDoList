@@ -44,7 +44,7 @@ const AddTask = ( { onAdd } ) => {
 
             <div className = 'formControl'>
                 <label>Due Date:</label>
-                <input type='text' value = {value !== '' ? dayjs(value).format('MM/DD/YYYY') : ''} onChange={onChange}/>
+                <input type='text' disabled={true} value = {value !== '' ? dayjs(value).format('MM/DD/YYYY') : ''} onChange={onChange}/>
                 <Calendar className = 'reactCalendar'
                 onChange={onChange}
                 value={value}/>

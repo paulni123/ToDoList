@@ -1,11 +1,14 @@
+import TagNew from "./TagNew"
 import Task from "./Task"
 
-const Tasks = ({ tasks, onDelete, onToggle, onTags }) => {
-
+const Tasks = ({ tasks, onDelete, onToggle, tags, onDeleteTag}) => {
 
     return (
         <>
-           {tasks.map((task) => (<Task key ={task.id} task = {task} onDelete = {onDelete} onToggle = {onToggle} onTags = {onTags}/>))} 
+           {tasks.map((task) => (<Task key ={task.id} task = {task} onDelete = {onDelete} onToggle = {onToggle} tags = {tags} 
+           onDeleteTag = {onDeleteTag}
+           />))} 
+           {/* {tags.map((tag) => <TagNew key={tag.id} tag={tag} />)} */}
         </>
     )
 }
