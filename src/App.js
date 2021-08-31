@@ -14,6 +14,8 @@ function App() {
 
   const [tags, setTags] = useState([])
 
+  const [taskTags, setTaskTags] = useState([])
+
   const [tasks, setTasks] = useState([])
 
   const [toDoButton, setTodoColor] = useState(false)
@@ -44,6 +46,7 @@ function App() {
     // }, [newTag])
 
     setTags([...tags, newTag])
+    setTaskTags([...taskTags, newTag])
 
     console.log(tag)
 
@@ -109,7 +112,7 @@ function App() {
           <div>
             {tasks.length > 0 ? <Tasks tasks = {tasks} 
             onDelete={deleteTask} onToggle={toggleCompleted} tags={tags}
-            onDeleteTag={deleteTag}
+            onDeleteTag={deleteTag} taskTags={taskTags}
             /> 
             : 'No tasks'}
             </div>

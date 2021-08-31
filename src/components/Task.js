@@ -2,7 +2,7 @@ import { Checkbox } from '@material-ui/core'
 import { useState, useEffect } from 'react'
 import TagNew from './TagNew'
 
-const Task = ({ task, onDelete, onToggle, tags, onDeleteTag }) => {
+const Task = ({ task, onDelete, onToggle, tags, onDeleteTag, taskTags }) => {
     const [checked, setChecked] = useState(false)
 
     const [tagText, setTagText] = useState("")
@@ -56,14 +56,14 @@ const Task = ({ task, onDelete, onToggle, tags, onDeleteTag }) => {
             inputProps={{ 'aria-label': 'primary checkbox' }}/></h3>
 
             <div className="tagClass">
-                <p>Tags: {tags.map((tag) => tag.tag + " ")}</p>
+                <p>Tags: {taskTags.map((taskTag) => taskTag.tag + " ")}</p>
             </div>
             {/* {tags.map((tag) => onDeleteTag(tag.id))} */}
             {/* <p>{clearTags}</p> */}
             </div>
-            {/* <div>
+            <div>
                 {tags.map((tag) => onDeleteTag(tag.id))} 
-            </div> */}
+            </div>
         </div>
     )
 }
