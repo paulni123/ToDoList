@@ -22,6 +22,10 @@ function App() {
 
   const [dateButton, setDateColor] = useState(false)
 
+  const [sortByDate, setSortByDate] = useState(false)
+
+  const [sortByCompleted, setSortByCompleted] = useState(false)
+
   function listOfTags(){
     console.log("This is the values: ",tags)
 
@@ -86,10 +90,12 @@ function App() {
 
   const changeTodoColor = () => {
     setTodoColor(!toDoButton)
+    setSortByCompleted(!sortByCompleted)
   }
 
   const changeDateColor = () => {
     setDateColor(!dateButton)
+    setSortByDate(!sortByDate)
   }
 
 

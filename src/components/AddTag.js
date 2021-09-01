@@ -12,6 +12,7 @@ const AddTag = ({ onAdd }) => {
 
         if(!tagText){
             alert('Please add a tag')
+            return
         }
 
         onAdd(tagText)
