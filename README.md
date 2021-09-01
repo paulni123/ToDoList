@@ -1,5 +1,7 @@
-ToDoList React application for GT Bits of Good
+# ToDoList React App for GT Bits of Good
 
+
+## Tools Used:
 
 Utilized HTML, CSS, JS, React.js, MaterialUI to create a to do list application
 
