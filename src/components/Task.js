@@ -10,7 +10,8 @@ const Task = ({ task, onDelete, onToggle, tags, onDeleteTag, taskTags }) => {
 
     const handleChange = (e) => {
         setChecked(e.target.checked)
-        tags.map((tag) => onDeleteTag(tag.id))
+        task.completed = !checked
+        console.log('This is task.completed value: ', task.completed)
     }
 
 
