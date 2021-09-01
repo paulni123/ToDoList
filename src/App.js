@@ -118,7 +118,7 @@ function App() {
           <div>
             {tasks.length > 0 ? <Tasks tasks = {tasks} 
             onDelete={deleteTask} onToggle={toggleCompleted} tags={tags}
-            onDeleteTag={deleteTag} taskTags={taskTags}
+            onDeleteTag={deleteTag} taskTags={taskTags} sortingByCompleted={sortByCompleted} sortingByDate={sortByDate}
             /> 
             : 'No tasks'}
             </div>

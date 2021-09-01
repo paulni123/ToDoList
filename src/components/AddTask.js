@@ -24,7 +24,7 @@ const AddTask = ( { onAdd } ) => {
 
         const value2 = dayjs(value).format('MM/DD/YYYY')
 
-        onAdd({text, value2, completed})
+        onAdd({text, value2, completed, value})
 
         setText('')
         onChange('')
